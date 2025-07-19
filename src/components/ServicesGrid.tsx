@@ -52,26 +52,6 @@ const services = [
     duration: "30min-1h",
     homeService: false,
     popular: true
-  },
-  {
-    id: 5,
-    title: "Réparation mobile/tablette",
-    description: "Diagnostic et réparation de smartphones et tablettes, tous modèles",
-    icon: Smartphone,
-    price: "À partir de 22$ CAD",
-    duration: "1-24h",
-    homeService: false,
-    popular: false
-  },
-  {
-    id: 6,
-    title: "Vente d'appareils",
-    description: "Achat et vente d'appareils reconditionnés avec garantie incluse",
-    icon: ShoppingCart,
-    price: "Prix variables",
-    duration: "Immédiat",
-    homeService: true,
-    popular: false
   }
 ];
 
@@ -163,6 +143,7 @@ const ServicesGrid = () => {
             </Card>
           ))}
         </div>
+        
 
         {/* Call-to-action */}
         <div className="text-center bg-gradient-to-r from-secondary to-muted p-8 rounded-2xl animate-fade-in">
@@ -177,7 +158,7 @@ const ServicesGrid = () => {
             <Button variant="hero" size="lg" onClick={scrollToBooking}>
               Demander un devis
             </Button>
-            <Button variant="outline" size="lg" onClick={() => window.open('tel:0123456789', '_self')}>
+            <Button variant="outline" size="lg" onClick={() => window.open('tel:4187184931', '_self')}>
               Assistance immédiate
             </Button>
           </div>

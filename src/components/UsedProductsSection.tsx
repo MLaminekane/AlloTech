@@ -253,7 +253,7 @@ const UsedProductsSection = () => {
             <CardContent className="p-6">
               <h3 className="text-lg font-semibold mb-2">Garantie et Service</h3>
               <p className="text-muted-foreground">
-                Tous nos produits usagés sont testés et garantis 30 jours. 
+                Tous nos produits usagés sont testés et garantis 15 jours. 
                 Support technique inclus.
               </p>
             </CardContent>

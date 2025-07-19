@@ -28,7 +28,6 @@ const BookingSection = () => {
     "Installation de logiciels", 
     "Configuration d'appareils",
     "Antivirus & Sécurité",
-    "Réparation mobile/tablette",
     "Vente d'appareils",
     "Service personnalisé"
   ];
@@ -256,7 +255,7 @@ const BookingSection = () => {
                        <Input
                          id="phone"
                          type="tel"
-                         placeholder="(514) 123-4567"
+                         placeholder="(418) 718-4931"
                          value={formData.phone}
                          onChange={(e) => setFormData({...formData, phone: sanitizeInput(e.target.value)})}
                          maxLength={20}
@@ -307,11 +306,11 @@ const BookingSection = () => {
                     Besoin d'aide urgente ? Contactez notre support 24h/24
                   </p>
                   <div className="space-y-2">
-                    <Button variant="outline" size="sm" className="w-full justify-start" onClick={() => window.open('tel:0123456789', '_self')}>
+                    <Button variant="outline" size="sm" className="w-full justify-start" onClick={() => window.open('tel:4187184931', '_self')}>
                       <Phone className="h-4 w-4 mr-2" />
-                      01 23 45 67 89
+                      418 718 4931
                     </Button>
-                    <Button variant="outline" size="sm" className="w-full justify-start" onClick={() => window.open('mailto:contact@techsupport.fr', '_self')}>
+                    <Button variant="outline" size="sm" className="w-full justify-start" onClick={() => window.open('mailto:contact@techsupport.ca', '_self')}>
                       <Mail className="h-4 w-4 mr-2" />
                       Chat en ligne
                     </Button>
@@ -334,7 +333,7 @@ const BookingSection = () => {
                   </div>
                   <div className="flex justify-between">
                     <span>Déplacement domicile</span>
-                    <span className="font-medium">+12$ CAD</span>
+                    <span className="font-medium">+15$ CAD</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Diagnostic gratuit</span>
@@ -352,7 +351,7 @@ const BookingSection = () => {
                   <div className="space-y-3 text-sm">
                     <div className="flex items-center space-x-2">
                       <div className="w-2 h-2 bg-success rounded-full"></div>
-                      <span>Garantie 30 jours sur toutes interventions</span>
+                      <span>Garantie 15 jours sur toutes interventions</span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <div className="w-2 h-2 bg-success rounded-full"></div>

@@ -24,10 +24,10 @@ const ContactSection = () => {
             <CardContent>
               <Button 
                 variant="ghost" 
-                className="text-foreground hover:text-accent"
-                onClick={() => window.open('tel:0123456789', '_self')}
+                className="text-foreground "
+                onClick={() => window.open('tel:4187184931', '_self')}
               >
-                01 23 45 67 89
+                418 718 4931
               </Button>
               <CardDescription>Support 24h/24</CardDescription>
             </CardContent>
@@ -41,10 +41,10 @@ const ContactSection = () => {
             <CardContent>
               <Button 
                 variant="ghost" 
-                className="text-foreground hover:text-accent"
-                onClick={() => window.open('mailto:contact@techsupport.fr', '_self')}
+                className="text-foreground "
+                onClick={() => window.open('mailto:contact@techsupport.ca', '_self')}
               >
-                contact@techsupport.fr
+                contact@techsupport.ca
               </Button>
               <CardDescription>Réponse sous 24h</CardDescription>
             </CardContent>

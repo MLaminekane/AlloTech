@@ -84,8 +84,8 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <MapPin className="h-4 w-4 text-accent" />
                 <div>
-                  <div className="font-medium">75001 Paris</div>
-                  <div className="text-background/60">Intervention Île-de-France</div>
+                  <div className="font-medium">Chicoutimi, QC</div>
+                  <div className="text-background/60">Intervention au Saguenay-Lac-Saint-Jean</div>
                 </div>
               </div>
 

@@ -1,9 +1,21 @@
 import { Button } from "@/components/ui/button";
-import { Menu, Phone, MessageCircle } from "lucide-react";
+import { Menu, Phone, MessageCircle, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+
 
 const Header = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
   const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    if (isHomePage) {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = `/#${sectionId}`;
+    }
+    setIsMobileMenuOpen(false); // Fermer le menu mobile après clic
   };
 
   return (
@@ -11,7 +23,7 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 cursor-pointer" onClick={() => window.location.href = '/'}>
             <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">T</span>
             </div>
@@ -23,9 +35,9 @@ const Header = () => {
             <button onClick={() => scrollToSection('services')} className="text-muted-foreground hover:text-foreground transition-smooth">
               Services
             </button>
-            <button onClick={() => scrollToSection('used-products')} className="text-muted-foreground hover:text-foreground transition-smooth">
+            <Link to="/used-products" className="text-muted-foreground hover:text-foreground transition-smooth">
               Produits usagés
-            </button>
+            </Link>
             <button onClick={() => scrollToSection('booking')} className="text-muted-foreground hover:text-foreground transition-smooth">
               Tarifs
             </button>
@@ -49,12 +61,80 @@ const Header = () => {
             </Button>
             
             {/* Mobile menu button */}
-            <Button variant="ghost" size="icon" className="md:hidden">
-              <Menu className="h-5 w-5" />
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="md:hidden"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
         </div>
       </div>
+
+      {/* Mobile menu overlay */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden fixed inset-0 top-16 z-10 bg-background/95 backdrop-blur-sm">
+          <div className="container mx-auto px-4 py-6">
+            <nav className="flex flex-col space-y-4 bg-background rounded-lg shadow-lg p-6">
+              <button 
+                onClick={() => scrollToSection('services')} 
+                className="text-left py-3 px-4 text-muted-foreground hover:text-foreground transition-smooth border-b border-border"
+              >
+                Services
+              </button>
+              <Link 
+                to="/used-products" 
+                className="py-3 px-4 text-muted-foreground hover:text-foreground transition-smooth border-b border-border"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Produits usagés
+              </Link>
+              <button 
+                onClick={() => scrollToSection('booking')} 
+                className="text-left py-3 px-4 text-muted-foreground hover:text-foreground transition-smooth border-b border-border"
+              >
+                Tarifs
+              </button>
+              <button 
+                onClick={() => scrollToSection('services')} 
+                className="text-left py-3 px-4 text-muted-foreground hover:text-foreground transition-smooth border-b border-border"
+              >
+                À propos
+              </button>
+              <button 
+                onClick={() => scrollToSection('contact')} 
+                className="text-left py-3 px-4 text-muted-foreground hover:text-foreground transition-smooth border-b border-border"
+              >
+                Contact
+              </button>
+              
+              {/* Mobile actions */}
+              <div className="pt-4 space-y-3">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="w-full justify-start" 
+                  onClick={() => window.open('tel:0123456789', '_self')}
+                >
+                  <Phone className="h-4 w-4 mr-2" />
+                  24h/24
+                </Button>
+                <Button 
+                  variant="accent" 
+                  size="sm" 
+                  className="w-full justify-start"
+                  onClick={() => scrollToSection('booking')}
+                >
+                  <MessageCircle className="h-4 w-4 mr-2" />
+                  Réserver
+                </Button>
+              </div>
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
