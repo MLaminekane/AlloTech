@@ -2,41 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Design system pour plateforme de services techniques
+Couleurs modernes et professionnelles en HSL uniquement */
 
 @layer base {
   :root {
+    /* Fond principal - blanc pur pour clarté */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 218 12% 15%;
 
+    /* Cartes et surfaces */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 218 12% 15%;
 
+    /* Popovers et menus */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 218 12% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Couleur primaire - Bleu tech moderne */
+    --primary: 214 84% 56%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 214 84% 48%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Couleur secondaire - Gris bleuté élégant */
+    --secondary: 214 20% 95%;
+    --secondary-foreground: 218 12% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Couleurs atténuées */
+    --muted: 214 15% 96%;
+    --muted-foreground: 218 8% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Cyan énergique pour les CTA */
+    --accent: 186 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 186 100% 42%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Couleurs d'état */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 71% 45%;
+    --warning: 38 92% 50%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Bordures et inputs */
+    --border: 214 25% 88%;
+    --input: 214 25% 88%;
 
-    --radius: 0.5rem;
+    --ring: 214 84% 56%;
+
+    /* Rayon de bordure moderne */
+    --radius: 0.75rem;
+
+    /* Gradients techniques */
+    --gradient-primary: linear-gradient(135deg, hsl(214 84% 56%), hsl(186 100% 50%));
+    --gradient-hero: linear-gradient(135deg, hsl(214 84% 56%) 0%, hsl(214 84% 48%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(186 100% 50%) 0%, hsl(186 100% 42%) 100%);
+
+    /* Ombres modernes */
+    --shadow-sm: 0 1px 2px 0 hsl(214 84% 56% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(214 84% 56% / 0.1), 0 2px 4px -1px hsl(214 84% 56% / 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(214 84% 56% / 0.1), 0 4px 6px -2px hsl(214 84% 56% / 0.05);
+    --shadow-accent: 0 8px 25px -8px hsl(186 100% 50% / 0.4);
+
+    /* Transitions fluides */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
