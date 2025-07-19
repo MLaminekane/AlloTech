@@ -2,6 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Phone, Mail, MapPin, Clock, MessageCircle, Facebook, Twitter, Instagram } from "lucide-react";
 
 const Footer = () => {
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-foreground text-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -35,12 +39,12 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Nos services</h3>
             <ul className="space-y-2 text-sm text-background/80">
-              <li><a href="#" className="hover:text-background transition-smooth">Transfert de données</a></li>
-              <li><a href="#" className="hover:text-background transition-smooth">Installation logiciels</a></li>
-              <li><a href="#" className="hover:text-background transition-smooth">Configuration appareils</a></li>
-              <li><a href="#" className="hover:text-background transition-smooth">Antivirus & Sécurité</a></li>
-              <li><a href="#" className="hover:text-background transition-smooth">Réparation mobile</a></li>
-              <li><a href="#" className="hover:text-background transition-smooth">Vente d'appareils</a></li>
+              <li><button onClick={() => scrollToSection('services')} className="hover:text-background transition-smooth">Transfert de données</button></li>
+              <li><button onClick={() => scrollToSection('services')} className="hover:text-background transition-smooth">Installation logiciels</button></li>
+              <li><button onClick={() => scrollToSection('services')} className="hover:text-background transition-smooth">Configuration appareils</button></li>
+              <li><button onClick={() => scrollToSection('services')} className="hover:text-background transition-smooth">Antivirus & Sécurité</button></li>
+              <li><button onClick={() => scrollToSection('services')} className="hover:text-background transition-smooth">Réparation mobile</button></li>
+              <li><button onClick={() => scrollToSection('services')} className="hover:text-background transition-smooth">Vente d'appareils</button></li>
             </ul>
           </div>
 
@@ -64,7 +68,7 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-accent" />
                 <div>
-                  <div className="font-medium">01 23 45 67 89</div>
+                  <button onClick={() => window.open('tel:0123456789', '_self')} className="font-medium hover:text-accent transition-colors">01 23 45 67 89</button>
                   <div className="text-background/60">Support 24h/24</div>
                 </div>
               </div>
@@ -72,7 +76,7 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-accent" />
                 <div>
-                  <div className="font-medium">contact@techsupport.fr</div>
+                  <button onClick={() => window.open('mailto:contact@techsupport.fr', '_self')} className="font-medium hover:text-accent transition-colors">contact@techsupport.fr</button>
                   <div className="text-background/60">Réponse sous 24h</div>
                 </div>
               </div>
@@ -94,7 +98,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <Button variant="accent" size="sm" className="w-full">
+            <Button variant="accent" size="sm" className="w-full" onClick={() => window.open('mailto:contact@techsupport.fr', '_self')}>
               <MessageCircle className="h-4 w-4 mr-2" />
               Chat en ligne
             </Button>

@@ -3,6 +3,14 @@ import { ArrowRight, Shield, Clock, MapPin } from "lucide-react";
 import heroImage from "@/assets/hero-tech-support.jpg";
 
 const Hero = () => {
+  const scrollToBooking = () => {
+    document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToServices = () => {
+    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="pt-16 bg-gradient-to-br from-background to-secondary/30 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
@@ -41,11 +49,11 @@ const Hero = () => {
 
             {/* Boutons d'action */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="lg" className="group">
+              <Button variant="hero" size="lg" className="group" onClick={scrollToBooking}>
                 Réserver maintenant
                 <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" onClick={scrollToServices}>
                 Voir nos services
               </Button>
             </div>

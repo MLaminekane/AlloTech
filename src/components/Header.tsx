@@ -2,6 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Menu, Phone, MessageCircle } from "lucide-react";
 
 const Header = () => {
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border shadow-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,27 +20,27 @@ const Header = () => {
 
           {/* Navigation - Desktop */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#services" className="text-muted-foreground hover:text-foreground transition-smooth">
+            <button onClick={() => scrollToSection('services')} className="text-muted-foreground hover:text-foreground transition-smooth">
               Services
-            </a>
-            <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-smooth">
+            </button>
+            <button onClick={() => scrollToSection('booking')} className="text-muted-foreground hover:text-foreground transition-smooth">
               Tarifs
-            </a>
-            <a href="#about" className="text-muted-foreground hover:text-foreground transition-smooth">
+            </button>
+            <button onClick={() => scrollToSection('services')} className="text-muted-foreground hover:text-foreground transition-smooth">
               À propos
-            </a>
-            <a href="#contact" className="text-muted-foreground hover:text-foreground transition-smooth">
+            </button>
+            <button onClick={() => scrollToSection('contact')} className="text-muted-foreground hover:text-foreground transition-smooth">
               Contact
-            </a>
+            </button>
           </nav>
 
           {/* Actions */}
           <div className="flex items-center space-x-3">
-            <Button variant="ghost" size="sm" className="hidden sm:flex">
+            <Button variant="ghost" size="sm" className="hidden sm:flex" onClick={() => window.open('tel:0123456789', '_self')}>
               <Phone className="h-4 w-4 mr-2" />
               <span className="hidden lg:inline">24h/24</span>
             </Button>
-            <Button variant="accent" size="sm">
+            <Button variant="accent" size="sm" onClick={() => scrollToSection('booking')}>
               <MessageCircle className="h-4 w-4 mr-2" />
               Réserver
             </Button>

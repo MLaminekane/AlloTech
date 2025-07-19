@@ -125,7 +125,7 @@ const BookingSection = () => {
                           </SelectTrigger>
                           <SelectContent>
                             <SelectItem value="office">En atelier</SelectItem>
-                            <SelectItem value="home">À domicile (+15€)</SelectItem>
+                            <SelectItem value="home">À domicile (+12$ CAD)</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
@@ -245,11 +245,11 @@ const BookingSection = () => {
                     Besoin d'aide urgente ? Contactez notre support 24h/24
                   </p>
                   <div className="space-y-2">
-                    <Button variant="outline" size="sm" className="w-full justify-start">
+                    <Button variant="outline" size="sm" className="w-full justify-start" onClick={() => window.open('tel:0123456789', '_self')}>
                       <Phone className="h-4 w-4 mr-2" />
                       01 23 45 67 89
                     </Button>
-                    <Button variant="outline" size="sm" className="w-full justify-start">
+                    <Button variant="outline" size="sm" className="w-full justify-start" onClick={() => window.open('mailto:contact@techsupport.fr', '_self')}>
                       <Mail className="h-4 w-4 mr-2" />
                       Chat en ligne
                     </Button>
@@ -268,11 +268,11 @@ const BookingSection = () => {
                 <CardContent className="space-y-3 text-sm">
                   <div className="flex justify-between">
                     <span>Intervention atelier</span>
-                    <span className="font-medium">À partir de 29€</span>
+                    <span className="font-medium">À partir de 22$ CAD</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Déplacement domicile</span>
-                    <span className="font-medium">+15€</span>
+                    <span className="font-medium">+12$ CAD</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Diagnostic gratuit</span>

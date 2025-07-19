@@ -18,7 +18,7 @@ const services = [
     title: "Transfert de données",
     description: "Migration sécurisée de vos données entre appareils (mobile, tablette, ordinateur)",
     icon: HardDrive,
-    price: "À partir de 49€",
+    price: "À partir de 35$ CAD",
     duration: "1-2h",
     homeService: true,
     popular: false
@@ -28,7 +28,7 @@ const services = [
     title: "Installation de logiciels",
     description: "Installation et configuration de logiciels, applications et systèmes d'exploitation",
     icon: Settings,
-    price: "À partir de 39€",
+    price: "À partir de 29$ CAD",
     duration: "30min-1h",
     homeService: true,
     popular: true
@@ -38,7 +38,7 @@ const services = [
     title: "Configuration d'appareils",
     description: "Configuration complète ordinateurs, imprimantes, routeurs et appareils connectés",
     icon: Laptop,
-    price: "À partir de 59€",
+    price: "À partir de 45$ CAD",
     duration: "1-3h",
     homeService: true,
     popular: false
@@ -48,7 +48,7 @@ const services = [
     title: "Antivirus & Sécurité",
     description: "Installation et configuration de solutions antivirus et sécurité informatique",
     icon: Shield,
-    price: "À partir de 45€",
+    price: "À partir de 32$ CAD",
     duration: "30min-1h",
     homeService: false,
     popular: true
@@ -58,7 +58,7 @@ const services = [
     title: "Réparation mobile/tablette",
     description: "Diagnostic et réparation de smartphones et tablettes, tous modèles",
     icon: Smartphone,
-    price: "À partir de 29€",
+    price: "À partir de 22$ CAD",
     duration: "1-24h",
     homeService: false,
     popular: false
@@ -76,6 +76,10 @@ const services = [
 ];
 
 const ServicesGrid = () => {
+  const scrollToBooking = () => {
+    document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section id="services" className="py-16 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -150,6 +154,7 @@ const ServicesGrid = () => {
                 <Button 
                   variant={service.popular ? "accent" : "outline"} 
                   className="w-full group"
+                  onClick={scrollToBooking}
                 >
                   Réserver ce service
                   <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -169,10 +174,10 @@ const ServicesGrid = () => {
             la meilleure solution pour vos besoins spécifiques.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg">
+            <Button variant="hero" size="lg" onClick={scrollToBooking}>
               Demander un devis
             </Button>
-            <Button variant="outline" size="lg">
+            <Button variant="outline" size="lg" onClick={() => window.open('tel:0123456789', '_self')}>
               Assistance immédiate
             </Button>
           </div>
