@@ -56,8 +56,8 @@ const ContactSection = () => {
               <CardTitle className="text-lg">Localisation</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-foreground">75001 Paris</div>
-              <CardDescription>Intervention Île-de-France</CardDescription>
+              <div className="text-foreground">Chicoutimi - La Baie</div>
+              <CardDescription>Saguenay, Québec</CardDescription>
             </CardContent>
           </Card>
 

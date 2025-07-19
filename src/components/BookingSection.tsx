@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Calendar, Clock, MapPin, User, Mail, Phone, MessageSquare } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { sanitizeInput, validateEmail, validatePhone, validateSafeText, rateLimiter } from "@/lib/security";
 
 const BookingSection = () => {
   const { toast } = useToast();
@@ -39,9 +40,66 @@ const BookingSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Rate limiting check
+    const clientKey = `booking_${Date.now()}`;
+    if (!rateLimiter.isAllowed(clientKey, 3, 300000)) { // 3 requests per 5 minutes
+      toast({
+        title: "Trop de tentatives",
+        description: "Veuillez attendre avant de soumettre une nouvelle réservation.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Validate and sanitize inputs
+    const sanitizedData = {
+      name: sanitizeInput(formData.name),
+      email: sanitizeInput(formData.email),
+      phone: sanitizeInput(formData.phone),
+      message: sanitizeInput(formData.message)
+    };
+
+    // Validation
+    if (!validateSafeText(sanitizedData.name, 100) || sanitizedData.name.length < 2) {
+      toast({
+        title: "Erreur de validation",
+        description: "Veuillez entrer un nom valide (2-100 caractères).",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!validateEmail(sanitizedData.email)) {
+      toast({
+        title: "Erreur de validation",
+        description: "Veuillez entrer une adresse email valide.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!validatePhone(sanitizedData.phone)) {
+      toast({
+        title: "Erreur de validation",
+        description: "Veuillez entrer un numéro de téléphone valide (format canadien).",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (!validateSafeText(sanitizedData.message, 1000)) {
+      toast({
+        title: "Erreur de validation",
+        description: "Le message contient des caractères non autorisés ou est trop long.",
+        variant: "destructive"
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
-    // Simulation d'envoi
+    // Simulation d'envoi sécurisée
     await new Promise(resolve => setTimeout(resolve, 1500));
     
     toast({
@@ -169,50 +227,54 @@ const BookingSection = () => {
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="name">Nom complet *</Label>
-                        <Input
-                          id="name"
-                          placeholder="Votre nom et prénom"
-                          value={formData.name}
-                          onChange={(e) => setFormData({...formData, name: e.target.value})}
-                          required
-                        />
+                         <Input
+                           id="name"
+                           placeholder="Votre nom et prénom"
+                           value={formData.name}
+                           onChange={(e) => setFormData({...formData, name: sanitizeInput(e.target.value)})}
+                           maxLength={100}
+                           required
+                         />
                       </div>
 
                       <div className="space-y-2">
                         <Label htmlFor="email">Email *</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          placeholder="votre@email.com"
-                          value={formData.email}
-                          onChange={(e) => setFormData({...formData, email: e.target.value})}
-                          required
-                        />
+                         <Input
+                           id="email"
+                           type="email"
+                           placeholder="votre@email.com"
+                           value={formData.email}
+                           onChange={(e) => setFormData({...formData, email: sanitizeInput(e.target.value)})}
+                           maxLength={320}
+                           required
+                         />
                       </div>
                     </div>
 
                     <div className="space-y-2">
                       <Label htmlFor="phone">Téléphone *</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        placeholder="06 12 34 56 78"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                        required
-                      />
+                       <Input
+                         id="phone"
+                         type="tel"
+                         placeholder="(514) 123-4567"
+                         value={formData.phone}
+                         onChange={(e) => setFormData({...formData, phone: sanitizeInput(e.target.value)})}
+                         maxLength={20}
+                         required
+                       />
                     </div>
 
                     {/* Description du problème */}
                     <div className="space-y-2">
                       <Label htmlFor="message">Description du problème (optionnel)</Label>
-                      <Textarea
-                        id="message"
-                        placeholder="Décrivez votre problème ou vos besoins spécifiques..."
-                        rows={4}
-                        value={formData.message}
-                        onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      />
+                       <Textarea
+                         id="message"
+                         placeholder="Décrivez votre problème ou vos besoins spécifiques..."
+                         rows={4}
+                         value={formData.message}
+                         onChange={(e) => setFormData({...formData, message: sanitizeInput(e.target.value)})}
+                         maxLength={1000}
+                       />
                     </div>
 
                     {/* Bouton de soumission */}
