@@ -255,7 +255,7 @@ const BookingSection = () => {
                        <Input
                          id="phone"
                          type="tel"
-                         placeholder="(418) 718-4931"
+                         placeholder="(...) ...-...."
                          value={formData.phone}
                          onChange={(e) => setFormData({...formData, phone: sanitizeInput(e.target.value)})}
                          maxLength={20}

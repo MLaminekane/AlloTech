@@ -68,7 +68,7 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-accent" />
                 <div>
-                  <button onClick={() => window.open('tel:0123456789', '_self')} className="font-medium hover:text-accent transition-colors">01 23 45 67 89</button>
+                  <button onClick={() => window.open('tel:4187184931', '_self')} className="font-medium hover:text-accent transition-colors">418 718 4931</button>
                   <div className="text-background/60">Support 24h/24</div>
                 </div>
               </div>
