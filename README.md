@@ -1,5 +1,3 @@
-# Welcome to your Lovable project
-
 ## Project info
 
 **URL**: https://allotech.vercel.app
@@ -7,8 +5,6 @@
 ## How can I edit this code?
 
 There are several ways of editing your application.
-
-Changes made via Lovable will be committed automatically to this repo.
 
 **Use your preferred IDE**
 
@@ -55,10 +51,3 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
