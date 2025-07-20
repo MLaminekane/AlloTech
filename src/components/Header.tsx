@@ -35,9 +35,9 @@ const Header = () => {
             <button onClick={() => scrollToSection('services')} className="text-muted-foreground hover:text-foreground transition-smooth">
               Services
             </button>
-            <Link to="/used-products" className="text-muted-foreground hover:text-foreground transition-smooth">
+            {/* <Link to="/used-products" className="text-muted-foreground hover:text-foreground transition-smooth">
               Produits usagés
-            </Link>
+            </Link> */}
             <button onClick={() => scrollToSection('booking')} className="text-muted-foreground hover:text-foreground transition-smooth">
               Tarifs
             </button>
@@ -84,13 +84,13 @@ const Header = () => {
               >
                 Services
               </button>
-              <Link 
+              {/* <Link 
                 to="/used-products" 
                 className="py-3 px-4 text-muted-foreground hover:text-foreground transition-smooth border-b border-border"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Produits usagés
-              </Link>
+              </Link> */}
               <button 
                 onClick={() => scrollToSection('booking')} 
                 className="text-left py-3 px-4 text-muted-foreground hover:text-foreground transition-smooth border-b border-border"

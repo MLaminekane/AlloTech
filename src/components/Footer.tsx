@@ -109,13 +109,9 @@ const Footer = () => {
         <div className="border-t border-background/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm text-background/60">
-              © 2024 TechSupport. Tous droits réservés.
+              © 2025 AlloTech. Tous droits réservés.
             </div>
-            <div className="flex items-center space-x-6 text-sm text-background/60">
-              <a href="#" className="hover:text-background transition-smooth">Mentions légales</a>
-              <a href="#" className="hover:text-background transition-smooth">CGV</a>
-              <a href="#" className="hover:text-background transition-smooth">Plan du site</a>
-            </div>
+            
           </div>
         </div>
       </div>
