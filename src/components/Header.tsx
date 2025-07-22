@@ -15,11 +15,11 @@ const Header = () => {
     } else {
       window.location.href = `/#${sectionId}`;
     }
-    setIsMobileMenuOpen(false); // Fermer le menu mobile après clic
+    setIsMobileMenuOpen(false); 
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50 shadow-lg">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -75,9 +75,9 @@ const Header = () => {
 
       {/* Mobile menu overlay */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-16 z-10 bg-background/95 backdrop-blur-sm">
+        <div className="md:hidden fixed inset-0 top-16 z-10 bg-background/90 backdrop-blur-md">
           <div className="container mx-auto px-4 py-6">
-            <nav className="flex flex-col space-y-4 bg-background rounded-lg shadow-lg p-6">
+            <nav className="flex flex-col space-y-4 bg-card/50 backdrop-blur-sm rounded-lg shadow-xl p-6 border border-border/50">
               <button 
                 onClick={() => scrollToSection('services')} 
                 className="text-left py-3 px-4 text-muted-foreground hover:text-foreground transition-smooth border-b border-border"

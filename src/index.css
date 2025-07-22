@@ -7,34 +7,34 @@ Couleurs modernes et professionnelles en HSL uniquement */
 
 @layer base {
   :root {
-    /* Fond principal - blanc pur pour clarté */
-    --background: 0 0% 100%;
-    --foreground: 218 12% 15%;
+    /* Fond principal - noir sophistiqué comme Resend */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
 
     /* Cartes et surfaces */
-    --card: 0 0% 100%;
-    --card-foreground: 218 12% 15%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
 
     /* Popovers et menus */
-    --popover: 0 0% 100%;
-    --popover-foreground: 218 12% 15%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
 
     /* Couleur primaire - Bleu tech moderne */
-    --primary: 214 84% 56%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 214 84% 48%;
+    --primary-hover: 217 91% 55%;
 
-    /* Couleur secondaire - Gris bleuté élégant */
-    --secondary: 214 20% 95%;
-    --secondary-foreground: 218 12% 25%;
+    /* Couleur secondaire - Gris foncé neutre */
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
 
     /* Couleurs atténuées */
-    --muted: 214 15% 96%;
-    --muted-foreground: 218 8% 45%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
 
     /* Accent - Cyan énergique pour les CTA */
     --accent: 186 100% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent-foreground: 0 0% 8%;
     --accent-hover: 186 100% 42%;
 
     /* Couleurs d'état */
@@ -44,8 +44,8 @@ Couleurs modernes et professionnelles en HSL uniquement */
     --warning: 38 92% 50%;
 
     /* Bordures et inputs */
-    --border: 214 25% 88%;
-    --input: 214 25% 88%;
+    --border: 0 0% 18%;
+    --input: 0 0% 15%;
 
     --ring: 214 84% 56%;
 
@@ -130,5 +130,28 @@ Couleurs modernes et professionnelles en HSL uniquement */
 
   body {
     @apply bg-background text-foreground;
+    /* Fond noir sophistiqué comme Resend */
+    background: hsl(var(--background));
+    background-image: 
+      radial-gradient(ellipse at top, hsla(0, 0%, 20%, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom left, hsla(186, 100%, 50%, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, hsla(217, 91%, 60%, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 1px 1px, hsla(0, 0%, 100%, 0.4) 1px, transparent 0);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 24px 24px;
+    min-height: 100vh;
   }
+
+  /* Suppression de l'ancien pattern de points séparé */
+  /* body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 1px 1px, hsla(0, 0%, 100%, 0.1) 1px, transparent 0);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: -1;
+  } */
 }

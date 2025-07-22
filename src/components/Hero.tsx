@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Clock, MapPin } from "lucide-react";
 import heroImage from "@/assets/hero-tech-support.jpg";
 
+
 const Hero = () => {
   const scrollToBooking = () => {
     document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
@@ -12,7 +13,13 @@ const Hero = () => {
   };
 
   return (
+    
     <section className="pt-16 bg-gradient-to-br from-background to-secondary/30 relative overflow-hidden">
+            {/* Pattern de points subtil */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_hsla(210,40%,98%,0.15)_1px,_transparent_0)] bg-[size:20px_20px]"></div>
+      </div> 
+      
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Contenu texte */}
