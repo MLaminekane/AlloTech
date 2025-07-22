@@ -121,12 +121,12 @@ const BookingSection = () => {
   };
 
   return (
-    <section id="booking" className="py-16 bg-gradient-to-br from-secondary/30 to-background">
+    <section id="booking" className="relative py-16 bg-gradient-to-br from-secondary/30 to-background bg-background text-foreground border-t border-border/50">
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_hsla(210,40%,98%,0.15)_1px,_transparent_0)] bg-[size:20px_20px]"></div>
       </div> 
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           {/* En-tête */}
           <div className="text-center mb-12 animate-fade-in">

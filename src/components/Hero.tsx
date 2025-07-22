@@ -19,7 +19,7 @@ const Hero = () => {
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_hsla(210,40%,98%,0.15)_1px,_transparent_0)] bg-[size:20px_20px]"></div>
       </div> 
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Contenu texte */}
@@ -48,10 +48,10 @@ const Hero = () => {
                 <MapPin className="h-5 w-5 text-accent" />
                 <span className="text-sm font-medium">À domicile</span>
               </div>
-              <div className="flex items-center space-x-3 p-3 bg-card rounded-lg shadow-sm">
+              {/* <div className="flex items-center space-x-3 p-3 bg-card rounded-lg shadow-sm">
                 <Shield className="h-5 w-5 text-accent" />
                 <span className="text-sm font-medium">Garantie incluse</span>
-              </div>
+              </div> */}
             </div>
 
             {/* Boutons d'action */}
