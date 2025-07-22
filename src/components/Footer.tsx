@@ -63,8 +63,6 @@ const Footer = () => {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="#" className="hover:text-foreground transition-smooth">Centre d'aide</a></li>
               <li><a href="#" className="hover:text-foreground transition-smooth">FAQ</a></li>
-              <li><a href="#" className="hover:text-foreground transition-smooth">Suivi de commande</a></li>
-              <li><a href="#" className="hover:text-foreground transition-smooth">Garanties</a></li>
               <li><a href="#" className="hover:text-foreground transition-smooth">Conditions d'utilisation</a></li>
               <li><a href="#" className="hover:text-foreground transition-smooth">Politique de confidentialité</a></li>
             </ul>

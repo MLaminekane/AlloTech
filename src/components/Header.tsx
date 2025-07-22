@@ -41,7 +41,7 @@ const Header = () => {
             {/* <button onClick={() => scrollToSection('booking')} className="text-muted-foreground hover:text-foreground transition-smooth">
               Tarifs
             </button> */}
-            <button onClick={() => scrollToSection('services')} className="text-muted-foreground hover:text-foreground transition-smooth">
+            <button onClick={() => scrollToSection('about')} className="text-muted-foreground hover:text-foreground transition-smooth">
               À propos
             </button>
             <button onClick={() => scrollToSection('contact')} className="text-muted-foreground hover:text-foreground transition-smooth">
@@ -98,7 +98,7 @@ const Header = () => {
                 Tarifs
               </button> */}
               <button 
-                onClick={() => scrollToSection('services')} 
+                onClick={() => scrollToSection('about')} 
                 className="text-left py-3 px-4 text-muted-foreground hover:text-foreground transition-smooth border-b border-border"
               >
                 À propos

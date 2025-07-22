@@ -185,7 +185,7 @@ const BookingSection = () => {
                             <SelectValue placeholder="Lieu d'intervention" />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="office">En atelier</SelectItem>
+                            {/* <SelectItem value="office">En atelier</SelectItem> */}
                             <SelectItem value="home">À domicile (+12$ CAD)</SelectItem>
                           </SelectContent>
                         </Select>
@@ -331,10 +331,10 @@ const BookingSection = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 text-sm">
-                  <div className="flex justify-between">
+                  {/* <div className="flex justify-between">
                     <span>Intervention atelier</span>
                     <span className="font-medium">À partir de 22$ CAD</span>
-                  </div>
+                  </div> */}
                   <div className="flex justify-between">
                     <span>Déplacement domicile</span>
                     <span className="font-medium">+15$ CAD</span>

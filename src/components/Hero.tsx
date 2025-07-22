@@ -60,7 +60,7 @@ const Hero = () => {
                 Réserver maintenant
                 <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg" onClick={scrollToServices}>
+              <Button variant="services" size="lg" className="cursor-pointer" onClick={scrollToServices}>
                 Voir nos services
               </Button>
             </div>
