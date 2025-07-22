@@ -41,7 +41,7 @@ const Header = () => {
             {/* <button onClick={() => scrollToSection('booking')} className="text-muted-foreground hover:text-foreground transition-smooth">
               Tarifs
             </button> */}
-            <button onClick={() => scrollToSection('about')} className="text-muted-foreground hover:text-foreground transition-smooth">
+            <button onClick={() => scrollToSection('services')} className="text-muted-foreground hover:text-foreground transition-smooth">
               À propos
             </button>
             <button onClick={() => scrollToSection('contact')} className="text-muted-foreground hover:text-foreground transition-smooth">
@@ -75,9 +75,9 @@ const Header = () => {
 
       {/* Mobile menu overlay */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-16 z-10 bg-background/90 backdrop-blur-md">
+        <div className="md:hidden fixed inset-0 top-16 z-10 bg-background/80 backdrop-blur-md">
           <div className="container mx-auto px-4 py-6">
-            <nav className="flex flex-col space-y-4 bg-card/50 backdrop-blur-sm rounded-lg shadow-xl p-6 border border-border/50">
+            <nav className="flex flex-col space-y-4 bg-card/95 backdrop-blur-sm rounded-lg shadow-xl p-6 border border-border/50">
               <button 
                 onClick={() => scrollToSection('services')} 
                 className="text-left py-3 px-4 text-muted-foreground hover:text-foreground transition-smooth border-b border-border"
@@ -98,7 +98,7 @@ const Header = () => {
                 Tarifs
               </button> */}
               <button 
-                onClick={() => scrollToSection('about')} 
+                onClick={() => scrollToSection('services')} 
                 className="text-left py-3 px-4 text-muted-foreground hover:text-foreground transition-smooth border-b border-border"
               >
                 À propos
