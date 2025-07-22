@@ -38,9 +38,9 @@ const Header = () => {
             {/* <Link to="/used-products" className="text-muted-foreground hover:text-foreground transition-smooth">
               Produits usagés
             </Link> */}
-            <button onClick={() => scrollToSection('booking')} className="text-muted-foreground hover:text-foreground transition-smooth">
+            {/* <button onClick={() => scrollToSection('booking')} className="text-muted-foreground hover:text-foreground transition-smooth">
               Tarifs
-            </button>
+            </button> */}
             <button onClick={() => scrollToSection('services')} className="text-muted-foreground hover:text-foreground transition-smooth">
               À propos
             </button>
@@ -91,12 +91,12 @@ const Header = () => {
               >
                 Produits usagés
               </Link> */}
-              <button 
+              {/* <button 
                 onClick={() => scrollToSection('booking')} 
                 className="text-left py-3 px-4 text-muted-foreground hover:text-foreground transition-smooth border-b border-border"
               >
                 Tarifs
-              </button>
+              </button> */}
               <button 
                 onClick={() => scrollToSection('services')} 
                 className="text-left py-3 px-4 text-muted-foreground hover:text-foreground transition-smooth border-b border-border"
