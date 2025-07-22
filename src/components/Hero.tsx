@@ -32,7 +32,7 @@ const Hero = () => {
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-xl">
-                Des solutions techniques expertes pour tous vos appareils. 
+                Des solutions techniques pour tous vos appareils. 
                 Réservez votre intervention en quelques clics, 
                 disponible 24h/24 avec option déplacement à domicile.
               </p>
