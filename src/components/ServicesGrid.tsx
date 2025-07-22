@@ -160,9 +160,9 @@ const ServicesGrid = () => {
             la meilleure solution pour vos besoins spécifiques.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg" onClick={scrollToBooking}>
+            {/* <Button variant="hero" size="lg" onClick={scrollToBooking}>
               Demander un devis
-            </Button>
+            </Button> */}
             <Button variant="outline" size="lg" onClick={() => window.open('tel:4187184931', '_self')}>
               Assistance immédiate
             </Button>
