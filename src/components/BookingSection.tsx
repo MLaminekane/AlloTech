@@ -337,7 +337,7 @@ const BookingSection = () => {
                   </div> */}
                   <div className="flex justify-between">
                     <span>Déplacement domicile</span>
-                    <span className="font-medium">+15$ CAD</span>
+                    <span className="font-medium">+12$ CAD</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Diagnostic gratuit</span>
