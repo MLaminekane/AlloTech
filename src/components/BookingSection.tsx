@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -36,6 +36,24 @@ const BookingSection = () => {
     "09:00", "10:00", "11:00", "12:00", 
     "14:00", "15:00", "16:00", "17:00", "18:00"
   ];
+
+  // Écouter l'événement de pré-sélection de service
+  useEffect(() => {
+    const handlePreSelectService = (event: CustomEvent) => {
+      const { service, homeService } = event.detail;
+      setFormData(prev => ({
+        ...prev,
+        service: service,
+        homeService: homeService
+      }));
+    };
+
+    window.addEventListener('preSelectService', handlePreSelectService as EventListener);
+    
+    return () => {
+      window.removeEventListener('preSelectService', handlePreSelectService as EventListener);
+    };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

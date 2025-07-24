@@ -15,6 +15,7 @@ import {
 const services = [
   {
     id: 1,
+    index: 1,
     title: "Transfert de données",
     description: "Migration sécurisée de vos données entre appareils (mobile, tablette, ordinateur)",
     icon: HardDrive,
@@ -25,6 +26,7 @@ const services = [
   },
   {
     id: 2,
+    index: 2,
     title: "Installation de logiciels",
     description: "Installation et configuration de logiciels, applications et systèmes d'exploitation",
     icon: Settings,
@@ -35,6 +37,7 @@ const services = [
   },
   {
     id: 3,
+    index: 3,
     title: "Configuration d'appareils",
     description: "Configuration complète ordinateurs, imprimantes, routeurs et appareils connectés",
     icon: Laptop,
@@ -45,6 +48,7 @@ const services = [
   },
   {
     id: 4,
+    index: 4,
     title: "Antivirus & Sécurité",
     description: "Installation et configuration de solutions antivirus et sécurité informatique",
     icon: Shield,
@@ -56,8 +60,23 @@ const services = [
 ];
 
 const ServicesGrid = () => {
-  const scrollToBooking = () => {
+  const scrollToBooking = (serviceTitle?: string, homeService?: boolean) => {
+    // Scroller vers la section booking
     document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+    
+    // Si un service est spécifié, pré-remplir le formulaire
+    if (serviceTitle) {
+      setTimeout(() => {
+        // Dispatch un événement personnalisé pour informer le composant BookingSection
+        const event = new CustomEvent('preSelectService', {
+          detail: {
+            service: serviceTitle,
+            homeService: homeService || false
+          }
+        });
+        window.dispatchEvent(event);
+      }, 500); // Délai pour laisser le scroll se terminer
+    }
   };
 
   return (
@@ -102,7 +121,10 @@ const ServicesGrid = () => {
                       <service.icon className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <CardTitle className="text-lg">{service.title}</CardTitle>
+                      <CardTitle className="text-lg">
+                        <span className="text-muted-foreground text-sm mr-2">#{service.index}</span>
+                        {service.title}
+                      </CardTitle>
                       <div className="text-sm text-muted-foreground mt-1">
                         {service.duration}
                       </div>
@@ -139,7 +161,7 @@ const ServicesGrid = () => {
                 <Button 
                   variant={service.popular ? "accent" : "outline"} 
                   className="w-full group"
-                  onClick={scrollToBooking}
+                  onClick={() => scrollToBooking(service.title, service.homeService)}
                 >
                   Réserver ce service
                   <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -160,9 +182,9 @@ const ServicesGrid = () => {
             la meilleure solution pour vos besoins spécifiques.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            {/* <Button variant="hero" size="lg" onClick={scrollToBooking}>
+            <Button variant="hero" size="lg" onClick={() => scrollToBooking()}>
               Demander un devis
-            </Button> */}
+            </Button>
             <Button variant="outline" size="lg" onClick={() => window.open('tel:4187184931', '_self')}>
               Assistance immédiate
             </Button>
